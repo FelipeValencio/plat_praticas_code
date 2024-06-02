@@ -1,0 +1,107 @@
+ID,Perguntas,Recomendação Sim,Recomendação não,Ponteiro Sim,Ponteiro Não
+Padrao [Reservado],Padrao [Reservado],"SEC01-BP02
+SEC01-BP04
+SEC01-BP05
+SEC01-BP07
+SEC01-BP08
+SEC03-BP01
+SEC04-BP01
+SEC10-BP03
+SEC10-BP04
+SEC10-BP05
+SEC10-BP08
+SEC02-BP06
+SEC03-BP05",,,
+dev-08,"Logs e eventos gerados por servidores, serviços, aplicações, etc são gerenciados de forma centralizada?",,SEC04-BP02,dev-10,dev-11
+dev-11,"Eventos gerados por servidores, serviços, aplicações, etc são gerenciados de forma automatizada?",,"SEC04-BP02 
+SEC04-BP03",dev-10,dev-10
+dev-10,"Sua empresa utiliza credenciais como SSH, API keys; DataBase credentials; OAuth?",SEC02-BP03,,dev-09,dev-09
+dev-09,Sua empresa possui aplicações terceiras no ambiente?,SEC11-BP03,,dev-05,dev-05
+dev-05,Você utiliza credenciais de longo prazo?,SEC02-BP05,,dev-06,dev-03
+dev-06,Podem ser substituídas por credenciais de curto prazo?,,,dev-03,dev-03
+dev-03,Sua empresa permite acesso público a recursos do ambiente?,"SEC03-BP07
+SEC03-BP08",,dev-04,dev-04
+dev-04,Você usa o AWS CLI (Interface de Linha de Código) ou APIs?,SEC02-BP02,,dev-01,dev-01
+dev-01,Sua empresa desenvolve software próprio?,"SEC01-BP06
+SEC11-BP01
+SEC11-BP02
+SEC11-BP03
+SEC11-BP04
+SEC11-BP06
+SEC11-BP07
+SEC11-BP08",,dev-07,serv-09
+dev-02,"Seu ambiente contém múltiplos ambientes? (ex. produção, desenvolvimento, teste)",SEC01-BP01,,serv-09,serv-09
+dev-07,Suas aplicações utilizam bibliotecas ou dependências terceiras?,SEC11-BP05,,dev-02,dev-02
+func-01,Há mais de um funcionário na empresa?,"SEC03-BP02
+SEC02-BP01
+SEC02-BP04
+SEC03-BP04",,func-04,func-04
+func-02,Sua empresa utiliza um identity provider (IdP)?,"SEC02-BP02
+SEC03-BP03",,func-01,func-03
+func-03,Há necessidade em gerenciar identidades (funcionários e contratados) entre várias aplicações e sistemas? ,SEC02-BP04,,func-01,func-01
+func-04,Sua empresa tem terceiros que acessam seu ambiente?,"SEC03-BP09
+SEC10-BP01
+SEC10-BP02",,nat-01,nat-01
+nat-01,Sua empresa armazena dados?,"SEC08-BP02
+SEC08-BP04
+SEC09-BP03",,nat-02,nat-03
+nat-02,Sua empresa precisa gerenciar chaves de criptografia? ,SEC08-BP01,,nat-03,nat-03
+nat-03,"Sua empresa processa dados sensíveis, pessoais, cartão de crédito e similares? ","SEC07-BP01
+SEC07-BP02
+SEC07-BP03 
+SEC07-BP04
+SEC08-BP05",,nat-04,nat-04
+nat-04,Sua empresa transmite dados?,"SEC09-BP03
+SEC09-BP03",,nat-06,nat-05
+nat-05,Seu ambiente está aberto a internet?,"SEC05-BP01
+SEC05-BP02
+SEC05-BP03
+SEC05-BP04
+SEC09-BP01",,,
+nat-06,Sua empresa transmite dados sensíveis ou pessoais através da internet?,SEC09-BP02,,nat-05,nat-05
+serv-01,Seu ambiente utiliza EC2? (Elastic Cloud Computing),"SEC05-BP01
+SEC05-BP02
+SEC05-BP03
+SEC05-BP04
+SEC06-BP01
+SEC06-BP02
+SEC06-BP03
+SEC06-BP04
+SEC06-BP05 
+SEC08-BP03
+SEC09-BP04",,serv-02,serv-02
+serv-02,Seu ambiente utiliza Lambda?,"SEC05-BP01
+SEC05-BP02
+SEC05-BP03
+SEC05-BP04
+SEC06-BP02
+SEC06-BP06
+SEC09-BP04",,serv-03,serv-03
+serv-03,Seu ambiente utiliza ECR? (Elastic Container Registry),"SEC02-BP03
+SEC06-BP06",,serv-04,serv-04
+serv-04,Seu ambiente utiliza RDS? (Relational Database Service),"SEC02-BP03
+SEC05-BP01
+SEC05-BP02
+SEC05-BP03
+SEC05-BP04
+SEC07-BP01
+SEC07-BP03
+SEC07-BP04
+SEC08-BP02
+SEC08-BP03
+SEC09-BP04",,serv-05,serv-05
+serv-05,Seu ambiente utiliza EKS? (Elastic Kubernetes Service),"SEC06-BP01
+SEC06-BP02
+SEC06-BP06",,serv-06,serv-06
+serv-06,Seu ambiente utiliza S3? (Simple Storage Service),"SEC08-BP02
+SEC08-BP03",,serv-07,serv-07
+serv-07,Seu ambiente utiliza ECS? (Elastic Compute Cloud),"SEC06-BP01
+SEC06-BP02",,serv-08,serv-08
+serv-08,Seu ambiente utiliza IoT? (Internet of Things),SEC06-BP06,,func-02,func-02
+serv-09,Seu ambiente possui serviços que se conectam a VPC? (Virtual Private Cloud),"SEC05-BP01
+SEC05-BP02
+SEC05-BP03
+SEC05-BP04
+SEC09-BP04
+SEC06-BP04
+SEC09-BP02",,serv-01,serv-01
