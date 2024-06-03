@@ -25,11 +25,12 @@ class ResultPage extends StatelessWidget {
       int indiceRec = Util.encontrarIndicePorId(tabelaRecomendacoes, r);
       results.add(ResultItem(
           recomendacao: tabelaRecomendacoes[indiceRec][0],
-          prioridade: tabelaRecomendacoes[indiceRec][3],
+          prioridade: int.parse(tabelaRecomendacoes[indiceRec][4]),
+          caracteristicas: tabelaRecomendacoes[indiceRec][3].trim().split(";"),
           descricao: tabelaRecomendacoes[indiceRec][2],
           padrao: recomendacoesPadrao.contains(r),
-          link: tabelaRecomendacoes[indiceRec][1]),
-      );
+          link: tabelaRecomendacoes[indiceRec][1]));
+
     }
 
     return results;
@@ -80,15 +81,9 @@ class ResultPage extends StatelessWidget {
             }
           }
 
-          // Sort the lists by priority
-          Map<String, int> priorityOrder = {'Alta': 3, 'Média': 2, 'Baixa': 1};
-          standardControls.sort((a, b) =>
-              priorityOrder[b.prioridade.trim()]!.compareTo(
-                  priorityOrder[a.prioridade.trim()]!));
-          assessmentControls.sort((a, b) =>
-              priorityOrder[b.prioridade.trim()]!.compareTo(
-                  priorityOrder[a.prioridade.trim()]!));
-
+          // Sort the lists by priority (integer field) in descending order
+          standardControls.sort((a, b) => a.prioridade.compareTo(b.prioridade));
+          assessmentControls.sort((a, b) => a.prioridade.compareTo(b.prioridade));
 
           List<Widget> listaAssessment = assessmentControls.map((e) {
             ListRecomendacoes listRecomendacao = ListRecomendacoes(item: e);
@@ -123,19 +118,6 @@ class ResultPage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Color definirCor(String prioridade) {
-    switch (prioridade.trim()) {
-      case 'Alta':
-        return Colors.redAccent.shade200;
-      case 'Média':
-        return Colors.amber;
-      case 'Baixa':
-        return Colors.lightGreen.shade200;
-      default:
-        return Colors.black;
-    }
   }
 
 }

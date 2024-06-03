@@ -17,6 +17,7 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
   
   @override
   Widget build(BuildContext context) {
+    String caracteristicas = widget.item.caracteristicas.join(', ');
     return Column(
       children: [
         SizedBox(
@@ -80,6 +81,13 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
                                     ),
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Text(
+                                    'Características: $caracteristicas',
+                                    style: const TextStyle(fontSize: 16),
+                                  ),
+                                ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -91,7 +99,7 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
                                       ),
                                     ),
                                     Text(
-                                      widget.item.prioridade.trim(),
+                                      getPrioridade(widget.item.prioridade),
                                       style: TextStyle(
                                           fontSize: 16,
                                           color: definirCor(widget.item.prioridade)
@@ -115,17 +123,30 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
       ],
     );
   }
-  
-  Color definirCor(String prioridade) {
-    switch (prioridade.trim()) {
-      case 'Alta':
-        return Colors.redAccent.shade200; // You can change this color according to your preference
-      case 'Média':
-        return Colors.amber; // You can change this color according to your preference
-      case 'Baixa':
-        return Colors.lightGreen.shade200; // You can change this color according to your preference
+
+  Color definirCor(int prioridade) {
+    switch (prioridade) {
+      case 1:
+        return Colors.redAccent.shade200;
+      case 2:
+        return Colors.amber;
+      case 3:
+        return Colors.lightGreen.shade200;
       default:
-        return Colors.black; // Default color
+        return Colors.black;
+    }
+  }
+
+  String getPrioridade(int prioridade) {
+    switch (prioridade) {
+      case 1:
+        return "Alta";
+      case 2:
+        return "Média";
+      case 3:
+        return "Baixa";
+      default:
+        return "";
     }
   }
 
