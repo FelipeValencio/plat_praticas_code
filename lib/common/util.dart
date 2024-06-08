@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 class Util {
 
   static Future<List<List<String>>> lerTabela(String nomeArquivo) async {
-    String content = await rootBundle.loadString("/assets/$nomeArquivo");
+    String content = await rootBundle.loadString("/$nomeArquivo");
     List<List<String>> tabela = const CsvToListConverter(
         shouldParseNumbers: false,
         fieldDelimiter: ",",

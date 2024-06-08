@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
+import 'package:file_saver/file_saver.dart';
 import 'package:flutter/material.dart';
 import 'package:plat_praticas/common/mensagem_erro.dart';
 import 'package:plat_praticas/resultados/list_recomendacoes.dart';
@@ -11,6 +15,8 @@ class ResultPage extends StatelessWidget {
 
   late List<List<String>> tabelaRecomendacoes;
 
+  late List<ResultItem> resultsCsv;
+
   ResultPage(
       {super.key, required this.recomendacoes, required this.recomendacoesPadrao});
 
@@ -18,6 +24,8 @@ class ResultPage extends StatelessWidget {
     tabelaRecomendacoes = await Util.lerTabela("tabela_auxiliar.csv");
 
     List<ResultItem> results = [];
+
+    resultsCsv = results;
 
     recomendacoes.addAll(recomendacoesPadrao);
 
@@ -30,10 +38,31 @@ class ResultPage extends StatelessWidget {
           descricao: tabelaRecomendacoes[indiceRec][2],
           padrao: recomendacoesPadrao.contains(r),
           link: tabelaRecomendacoes[indiceRec][1]));
-
     }
 
     return results;
+  }
+
+  String listToCsv(List<ResultItem> results) {
+    final csvBuffer = StringBuffer();
+    csvBuffer.writeln(ResultItem.csvHeader());
+
+    for (var result in results) {
+      csvBuffer.writeln(result.toCsvRow());
+    }
+
+    return csvBuffer.toString();
+  }
+
+  void downloadCSV(String file) async {
+    Uint8List bytes = Uint8List.fromList(utf8.encode(file));
+
+    await FileSaver.instance.saveFile(
+      name: 'recomendacoes_aws',
+      bytes: bytes,
+      ext: 'csv',
+      mimeType: MimeType.csv,
+    );
   }
 
   @override
@@ -41,6 +70,17 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resultados'),
+        actions: [
+          Row(
+            children: [
+              TextButton.icon(
+                icon: const Icon(Icons.download),
+                label: const Text('Baixar resultados'),
+                onPressed: () => downloadCSV(listToCsv(resultsCsv)),
+              ),
+            ],
+          )
+        ],
       ),
       body: FutureBuilder<List<ResultItem>>(
         future: buildResults(),

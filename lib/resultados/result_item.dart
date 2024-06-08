@@ -9,4 +9,13 @@ class ResultItem {
   ResultItem({required this.caracteristicas, required this.recomendacao,
     required this.descricao, required this.link,
     required this.prioridade, required this.padrao});
+
+  String toCsvRow() {
+    final caracteristicasStr = caracteristicas.join(',');
+    return '$recomendacao;$prioridade;$caracteristicasStr;$descricao;$link';
+  }
+
+  static String csvHeader() {
+    return 'Recomendacao;Prioridade;Caracteristicas;Descricao;Link';
+  }
 }
