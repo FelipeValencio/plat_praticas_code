@@ -15,7 +15,7 @@ class ResultPage extends StatelessWidget {
       {super.key, required this.recomendacoes, required this.recomendacoesPadrao});
 
   Future<List<ResultItem>> buildResults() async {
-    tabelaRecomendacoes = await Util.lerTabela("tabela_recomendacoes.csv");
+    tabelaRecomendacoes = await Util.lerTabela("tabela_auxiliar.csv");
 
     List<ResultItem> results = [];
 
