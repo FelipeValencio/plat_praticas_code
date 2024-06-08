@@ -59,7 +59,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/tabela_estado.csv
-    - assets/tabela_recomendacoes.csv
+    - assets/tabela_auxiliar.csv
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
