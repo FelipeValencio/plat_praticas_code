@@ -1,6 +1,6 @@
 {
-    "name": "plat_praticas",
-    "short_name": "plat_praticas",
+    "name": "plat_praticas_code",
+    "short_name": "plat_praticas_code",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
