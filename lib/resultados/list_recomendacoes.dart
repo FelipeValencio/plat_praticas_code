@@ -13,8 +13,6 @@ class ListRecomendacoes extends StatefulWidget {
 
 class _ListRecomendacoesState extends State<ListRecomendacoes> {
 
-  bool lido = false;
-  
   @override
   Widget build(BuildContext context) {
     String caracteristicas = widget.item.caracteristicas.join(', ');
@@ -46,7 +44,7 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
                       child: ExpansionTile(
                         onExpansionChanged: (bool v) {
                           setState(() {
-                            lido = true;
+                            widget.item.lido = true;
                           });
                         },
                         iconColor: definirCor(widget.item.prioridade),
@@ -54,8 +52,8 @@ class _ListRecomendacoesState extends State<ListRecomendacoes> {
                           widget.item.recomendacao,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontWeight: lido ? FontWeight.normal : FontWeight.bold,
-                            color: lido ? Colors.grey : Colors.black,
+                            fontWeight: widget.item.lido ? FontWeight.normal : FontWeight.bold,
+                            color: widget.item.lido ? Colors.grey : Colors.black,
                           ),
                         ),
                         collapsedIconColor: definirCor(widget.item.prioridade),

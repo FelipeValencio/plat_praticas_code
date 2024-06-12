@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Questionário de práticas para ambientes cloud AWS'),
+      home: const MyHomePage(title: 'Questionário de práticas para ambientes cloud em AWS'),
     );
   }
 }
