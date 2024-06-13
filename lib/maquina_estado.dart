@@ -78,10 +78,11 @@ class MaquinaEstado {
   }
 
   void respostaSim() {
+    estadosPassados.add(estadoAtual);
+
     estadoAtual =
         Util.encontrarIndicePorId(tabelaEstado, tabelaEstado[estadoAtual][4]);
 
-    estadosPassados.add(estadoAtual);
     controlesPassados.add(copiaLiteral(controles));
     progresso++;
 
@@ -94,10 +95,11 @@ class MaquinaEstado {
   }
 
   void respostaNao() {
+    estadosPassados.add(estadoAtual);
+
     estadoAtual =
         Util.encontrarIndicePorId(tabelaEstado, tabelaEstado[estadoAtual][5]);
 
-    estadosPassados.add(estadoAtual);
     controlesPassados.add(copiaLiteral(controles));
     progresso++;
 
