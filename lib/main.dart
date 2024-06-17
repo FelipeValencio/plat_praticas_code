@@ -158,8 +158,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Column(
             children: [
               SizedBox(
-                height: 150,
-                width: MediaQuery.of(context).size.width * 0.75,
+                height: 200,
+                width: MediaQuery.of(context).size.width * 0.80,
                 child: Text(
                   perguntaAtual,
                   textAlign: TextAlign.center,
